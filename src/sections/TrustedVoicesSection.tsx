@@ -27,6 +27,22 @@ const recommendations = [
     quote:
       "As a Lecturer I'm pleased to recommend Dewmith without any hesitation when he study at IJSE. Throughout his academic journey, he consistently demonstrated a strong work ethic, keen intellectual curiosity, and a passion for learning. He is a dedicated and responsible individual who consistently goes above and beyond expectations. I am confident that Dewmith will continue to thrive in any academic or professional pursuit he chooses to undertake in future.",
   },
+  {
+    author: 'Malan Amarasinghe',
+    role: 'Senior Software Engineer - Android @ aeturnum',
+    date: 'April 17, 2026',
+    relation: 'Managed Dewmith directly',
+    quote:
+      'I had the chance to guide Dewmith while he was working on Flutter project (Lakshapathi), especially with app structure and state management using Provider.\n\nHe is a very hardworking person and always puts real effort into this project. What I like most is that he doesn’t give up easily — he keeps trying until he finds the right solution.\n\nHe understands concepts quickly, listens to feedback, and improves fast. I’ve seen him handle tasks responsibly and deliver good quality work on time.\n\nOverall, he’s someone you can trust to get the job done. I’m happy to recommend him to anyone looking for a dedicated Flutter developer.',
+  },
+  {
+    author: 'Suhash Rodrigo',
+    role: 'E2E Solution Architect at COMBANK',
+    date: 'January 25, 2026',
+    relation: 'Managed Dewmith directly',
+    quote:
+      'I had the pleasure of mentoring Dewmith Mihisara while working closely with him, where I provided architectural guidance, technical direction, and ongoing support during project standups. From the outset, Dewmith demonstrated strong technical competence, a genuine eagerness to learn, and a clear commitment to delivering high-quality results.\n\nDuring the News First – Parliament Election 2024 project, Dewmith played a significant role in backend development. Under my guidance, he successfully delivered multiple high-performance Spring Boot APIs that supported real-time election data processing. He also actively contributed to load testing and participated in monitoring the GCP infrastructure during peak election hours, helping ensure system stability and uninterrupted operations during critical periods.\n\nHaving mentored him closely, I was able to observe his professional growth firsthand. Dewmith quickly grasps architectural concepts, readily adopts best practices, and remains dependable even in time-sensitive, mission-critical environments. His problem-solving mindset, dedication, and positive attitude consistently set him apart.\n\nI confidently recommend Dewmith Mihisara and believe he will be a valuable asset to any team he joins.',
+  },
 ]
 
 const sliderVariants = {

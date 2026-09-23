@@ -1,7 +1,46 @@
+import { useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, MapPin, Send } from 'lucide-react'
+import { Github, Linkedin, Loader2, Mail, MapPin, Send } from 'lucide-react'
+
+type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState<SubmitStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleChange = (field: keyof typeof formData) => (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData((prev) => ({ ...prev, [field]: event.target.value }))
+  }
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setStatus('submitting')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message. Please try again later.')
+      }
+
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+    } catch (error) {
+      setStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : 'Something went wrong.')
+    }
+  }
+
   return (
     <section className="flex h-full flex-col justify-center overflow-y-auto bg-background px-6 pb-8 pt-28 md:px-16">
       <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-12 md:flex-row md:items-stretch">
@@ -71,32 +110,70 @@ export function ContactSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <form className="space-y-5">
-            {[
-              { label: 'Name', type: 'text', placeholder: 'Enter your name' },
-              { label: 'Email', type: 'email', placeholder: 'name@example.com' },
-            ].map((field) => (
-              <div key={field.label} className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">{field.label}</label>
-                <input
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition focus:border-foreground focus:outline-none"
-                />
-              </div>
-            ))}
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-muted-foreground">Message</label>
-              <textarea
-                placeholder="Tell me about your idea..."
-                rows={4}
+              <label htmlFor="contact-name" className="text-sm font-medium text-muted-foreground">
+                Name
+              </label>
+              <input
+                id="contact-name"
+                type="text"
+                placeholder="Enter your name"
+                required
+                value={formData.name}
+                onChange={handleChange('name')}
                 className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition focus:border-foreground focus:outline-none"
               />
             </div>
-            <button type="button" className="btn-solid group gap-2">
-              Send message
-              <Send className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <div className="space-y-2">
+              <label htmlFor="contact-email" className="text-sm font-medium text-muted-foreground">
+                Email
+              </label>
+              <input
+                id="contact-email"
+                type="email"
+                placeholder="name@example.com"
+                required
+                value={formData.email}
+                onChange={handleChange('email')}
+                className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition focus:border-foreground focus:outline-none"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="contact-message" className="text-sm font-medium text-muted-foreground">
+                Message
+              </label>
+              <textarea
+                id="contact-message"
+                placeholder="Tell me about your idea..."
+                rows={4}
+                required
+                value={formData.message}
+                onChange={handleChange('message')}
+                className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition focus:border-foreground focus:outline-none"
+              />
+            </div>
+            <button type="submit" disabled={status === 'submitting'} className="btn-solid group gap-2 disabled:opacity-60">
+              {status === 'submitting' ? (
+                <>
+                  Sending...
+                  <Loader2 className="size-4 animate-spin" />
+                </>
+              ) : (
+                <>
+                  Send message
+                  <Send className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </>
+              )}
             </button>
+            {status === 'success' && (
+              <p className="text-sm font-medium text-emerald-500">
+                Thanks for reaching out! I&apos;ll get back to you soon.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="text-sm font-medium text-red-500">{errorMessage}</p>
+            )}
           </form>
         </motion.div>
       </div>
