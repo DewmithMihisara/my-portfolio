@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# Dewmith Mihisara
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Software Engineer · Colombo, Sri Lanka
 
-Currently, two official plugins are available:
+This is the source for my personal portfolio at [dewmithmihisara.online](https://www.dewmithmihisara.online).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About Me
 
-## React Compiler
+I'm an enthusiastic and detail-oriented software engineer specializing in Java, Spring Boot, and scalable cloud solutions. I bridge robust backend engineering with collaborative product delivery — designing performant APIs, optimizing service reliability, and deploying solutions that scale confidently in the cloud.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I'm passionate about writing clean, efficient code and thrive in agile, collaborative environments where technical delivery is closely aligned with business outcomes.
 
-## Expanding the ESLint configuration
+## What I Do
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Backend Engineering** — Designing resilient services with Java, Spring Boot, and event-driven patterns that scale gracefully.
+- **Solution Architecture** — Translating complex domain logic into modular, cloud-ready architectures that remain easy to evolve.
+- **Cloud & Automation** — Automating CI/CD workflows and infrastructure to deliver features faster without sacrificing reliability.
+- **Team Collaboration** — Mentoring teams, facilitating agile rituals, and aligning technical delivery with business outcomes.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Featured Work
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Marketplace** — A multi-vendor marketplace platform enabling seamless product discovery, secure payments, and automated vendor onboarding.
+- **ProveIt** — A digital evidence management system with secure file ingestion, validation workflows, and real-time audit trails.
+- **Swarnavahini Election 2025** — A high-traffic election coverage experience with live results, analytics dashboards, and resilient cloud infrastructure.
+- **PetMedi.lk** — A telehealth platform connecting pet owners with vets, featuring appointment scheduling, video consults, and prescriptions.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Education
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Wrexham University** — BSc, Computer Software Engineering (2025 – 2026)
+- **IJSE (Institute of Software Engineering)** — Higher National Diploma, Computer Software Engineering (2022 – 2025)
+- **St. Aloysius' College** — GCE Ordinary Level
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Let's Connect
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Email: [mihisaralokuhewage@gmail.com](mailto:mihisaralokuhewage@gmail.com)
+- LinkedIn: [linkedin.com/in/dewmithmihisara](https://www.linkedin.com/in/dewmithmihisara/)
+- GitHub: [github.com/dewmithmihisara](https://github.com/dewmithmihisara)
+- Website: [dewmithmihisara.online](https://www.dewmithmihisara.online)
+
+Whether it's architecting resilient backend systems, launching full-stack products, or scaling cloud services — I'm always excited to collaborate on the next challenge.
